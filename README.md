@@ -9,7 +9,11 @@
     - you can skip vc_redist.arm64.exe
   - And if you are on a Server: Install DotNet3.5 via serverConsole https://www.youtube.com/watch?v=uSRMvCjuUdI
   - Else it could be it is also required for non servers: https://www.microsoft.com/en-us/download/details.aspx?id=21
-
+  - if you still get the -1073741795 Error on server start:
+    - go to your windows apps setting, search for Visual C and remove every version that includes one of the following years (2015, 2017, 2019,2022)
+    - retry the installer  serverfiles\Engine\Extras\Redist\en-us\vc_redist.x64.exe
+    - it should now successfully install and hopefully windrose should work
+   
 
 ### WindowsGSM Installation: 
 1. Download  WindowsGSM https://windowsgsm.com/ 
