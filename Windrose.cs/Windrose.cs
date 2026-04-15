@@ -16,7 +16,7 @@ namespace WindowsGSM.Plugins
         public Plugin Plugin = new Plugin
         {
             name = "WindowsGSM.Windrose", // WindowsGSM.XXXX
-            author = "MuchLive",
+            author = "MuchLive - Twitch.Tv/Much_Live",
             description = "WindowsGSM plugin for supporting Windrose Dedicated Server",
             version = "1.0.1",
             url = "", // Github repository link (Best practice) TODO
@@ -33,7 +33,7 @@ namespace WindowsGSM.Plugins
         // - Game server Fixed variables
         //public override string StartPath => "WindroseServer.exe"; // Game server start path
         public override string StartPath => "R5\\Binaries\\Win64\\WindroseServer-Win64-Shipping.exe";//"WindroseServer.exe";
-        public string FullName = "WindroseServer-Win64-Shipping.exe"; // Game server FullName
+        public string FullName = "Windrose Dedicated Server (Windrose.cs)"; // Game server FullName
 
         public bool AllowsEmbedConsole = true;  // Does this server support output redirect?
         public int PortIncrements = 2; // This tells WindowsGSM how many ports should skip after installation
