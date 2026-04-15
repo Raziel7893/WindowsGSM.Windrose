@@ -1,7 +1,7 @@
 # WindowsGSM.Windrose
 🧩WindowsGSM plugin that provides Windrose Dedicated server
 
-## PLEASE ⭐STAR⭐ THE REPO IF YOU LIKE IT! THANKS! CHECK BELOW FOR A TIP OPTION
+## PLEASE ⭐STAR⭐ THE REPO IF YOU LIKE IT! THANKS!
 
 ### Notes
 - install everything inside serverfiles\Engine\Extras\Redist\en-us _(click Browse => ServerFiles to find it)
