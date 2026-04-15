@@ -13,7 +13,12 @@
     - go to your windows apps setting, search for Visual C and remove every version that includes one of the following years (2015, 2017, 2019,2022)
     - retry the installer  serverfiles\Engine\Extras\Redist\en-us\vc_redist.x64.exe
     - it should now successfully install and hopefully windrose should work
-   
+- Note on upgrades from Much_Lives first zip version from discord: We fixed the FullName, which breaks compatibility to existing servers as they are not recogized anymore 
+  - To fix it open servers\%ID%\configs\WindowsGSM.cfg
+  - change the first line from
+> servergame="WindroseServer-Win64-Shipping.exe [Windrose.cs]"
+  - to
+> servergame="Windrose Dedicated Server [Windrose.cs]"
 
 ### WindowsGSM Installation: 
 1. Download  WindowsGSM https://windowsgsm.com/ 
