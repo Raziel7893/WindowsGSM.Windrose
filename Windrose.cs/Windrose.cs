@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
+using System.Runtime.InteropServices;
+using System.Text;
 using System.Threading.Tasks;
 using WindowsGSM.Functions;
-using WindowsGSM.GameServer.Query;
 using WindowsGSM.GameServer.Engine;
-using System.IO;
-using Newtonsoft.Json;
-using System.Text;
+using WindowsGSM.GameServer.Query;
 
 namespace WindowsGSM.Plugins
 {
@@ -18,8 +18,8 @@ namespace WindowsGSM.Plugins
             name = "WindowsGSM.Windrose", // WindowsGSM.XXXX
             author = "MuchLive",
             description = "WindowsGSM plugin for supporting Windrose Dedicated Server",
-            version = "1.0.2",
-            url = "https://github.com/Raziel7893/WindowsGSM.Windrose", // Github repository link (Best practice) TODO
+            version = "1.0.1",
+            url = "", // Github repository link (Best practice) TODO
             color = "#34FFeb" // Color Hex
         };
 
@@ -67,6 +67,7 @@ namespace WindowsGSM.Plugins
                 Error = $"{Path.GetFileName(shipExePath)} not found ({shipExePath})";
                 return null;
             }
+
 
             StringBuilder sb = new StringBuilder();
 
@@ -121,17 +122,41 @@ namespace WindowsGSM.Plugins
             }
         }
 
-        // - Stop server function
-        public async Task Stop(Process p)
+        #region preparation of the WindowsAPI to send process shutdown signals
+        internal const int CTRL_C_EVENT = 0;
+        [DllImport("kernel32.dll")]
+        internal static extern bool GenerateConsoleCtrlEvent(uint dwCtrlEvent, uint dwProcessGroupId);
+        [DllImport("kernel32.dll", SetLastError = true)]
+        internal static extern bool AttachConsole(uint dwProcessId);
+        [DllImport("kernel32.dll", SetLastError = true, ExactSpelling = true)]
+        internal static extern bool FreeConsole();
+        [DllImport("kernel32.dll")]
+        static extern bool SetConsoleCtrlHandler(ConsoleCtrlDelegate HandlerRoutine, bool Add);
+        delegate Boolean ConsoleCtrlDelegate(uint CtrlType);
+        #endregion
+
+        //sends the stop signal to the process
+        public static bool SendStopSignal(Process p)
         {
-            await Task.Run(() =>
+            if (AttachConsole((uint)p.Id))
             {
-                Functions.ServerConsole.SetMainWindow(p.MainWindowHandle);
-                Functions.ServerConsole.SendWaitToMainWindow("^c");
-                p.WaitForExit(2000);
-                if (!p.HasExited)
-                    p.Kill();
-            });
+                SetConsoleCtrlHandler(null, true);
+                try
+                {
+                    if (!GenerateConsoleCtrlEvent(CTRL_C_EVENT, 0))
+                    {
+                        return false;
+                    }
+                    p.WaitForExit(10000);
+                }
+                finally
+                {
+                    SetConsoleCtrlHandler(null, false);
+                    FreeConsole();
+                }
+                return true;
+            }
+            return false;
         }
     }
 }
