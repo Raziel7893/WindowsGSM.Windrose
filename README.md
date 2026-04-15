@@ -33,13 +33,13 @@
 4. Or Press on the Puzzle Icon in the left bottom side and press **[IMPORT PLUGIN]** and choose the downloaded .zip
 
 ### Official Documentation
-🗃️ Included as PDF in the steamdownload
+🗃️ https://xgamingserver.com/blog/windrose-dedicated-server-setup-guide-2026-self-host-vs-paid-hosting/ (let me know if you find a more indepth one with more parameters)
 
 ### The Game
-🕹️ https://store.steampowered.com/app/2218970/Plains_of_Pain/
+🕹️ https://store.steampowered.com/app/3041230/Windrose/
 
 ### Dedicated server info
-🖥️ https://steamdb.info/app/2227360/infos/
+🖥️ https://steamdb.info/app/4129620/infos/
 
 ### Port Forwarding (YOU NEED THIS, TO BE ABLE TO CONNECT FROM THE INTERNET(only for servers/pcs at home):
 - If You don't know How: Google: YourRouterBrand + Portforwarding
