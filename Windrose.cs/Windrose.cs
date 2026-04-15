@@ -121,6 +121,18 @@ namespace WindowsGSM.Plugins
                 return null; // return null if fail to start
             }
         }
+		
+        // - Stop server function
+        public async Task Stop(Process p)
+		{
+			await Task.Run(() =>
+			{
+                if (!SendStopSignal(p))
+                {
+                    p.Kill();
+                }
+            });
+		}
 
         #region preparation of the WindowsAPI to send process shutdown signals
         internal const int CTRL_C_EVENT = 0;
