@@ -4,8 +4,9 @@
 ## PLEASE ⭐STAR⭐ THE REPO IF YOU LIKE IT! THANKS! CHECK BELOW FOR A TIP OPTION
 
 ### Notes
-- install everything inside _CommonRedist
-- 
+- install everything inside serverfiles\Engine\Extras\Redist\en-us _(click Browse => ServerFiles to find it)
+  - if that does not help also install https://www.microsoft.com/en-us/download/details.aspx?id=35
+  - And if you are on a Server: Install DotNet4.5 via serverConsole https://www.youtube.com/watch?v=uSRMvCjuUdI   
 
 
 ### WindowsGSM Installation: 
@@ -36,8 +37,8 @@
 
 ### Files To Backup
 - Save Game (You could only save serverfiles/Windrose/Saved , but that includes many big logs)
-  - WindowsGSM\servers\%ID%\serverfiles/Windrose\save-dir
-  - WindowsGSM\servers\%ID%\serverfiles/Windrose/Configs
+  - WindowsGSM\servers\%ID%\serverfiles/R5/Saved/SaveProfile
+  - WindowsGSM\servers\%ID%\serverfiles/R5/Saved/Configs
 - WindowsGSM Config
   - WindowsGSM\servers\%ID%\configs
 
