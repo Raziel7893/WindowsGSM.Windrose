@@ -4,8 +4,9 @@
 ## PLEASE ⭐STAR⭐ THE REPO IF YOU LIKE IT! THANKS!
 
 ### Notes
-- install everything inside serverfiles\Engine\Extras\Redist\en-us _(click Browse => ServerFiles to find it)
+- if it fails to start: install everything inside serverfiles\Engine\Extras\Redist\en-us _(click Browse => ServerFiles to find it) (the 
   - if that does not help also install https://www.microsoft.com/en-us/download/details.aspx?id=35
+    - you can skip vc_redist.arm64.exe
   - And if you are on a Server: Install DotNet3.5 via serverConsole https://www.youtube.com/watch?v=uSRMvCjuUdI
   - Else it could be it is also required for non servers: https://www.microsoft.com/en-us/download/details.aspx?id=21
 
